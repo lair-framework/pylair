@@ -42,7 +42,7 @@ host = {
     '_id': '',
     'projectId': '',
     'longIpv4Addr': 0,          # Integer version of IP address
-    'ipv4': '',                 
+    'ipv4': '',
     'mac': '',
     'hostnames': [],            # List of strings
     'os': dict(),               # 'os' item
