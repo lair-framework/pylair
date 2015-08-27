@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name="pylair",
-    version="0.2",
+    version="1.0.0",
     author='Dan Kottmann',
     author_email='djkottmann@gmail.com',
     packages=['pylair'],
