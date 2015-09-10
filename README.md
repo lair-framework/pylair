@@ -1,4 +1,4 @@
-## Description ##
+# pylair #
 
 pylair is a Python library used to interact with the Lair 2.0 API
 
