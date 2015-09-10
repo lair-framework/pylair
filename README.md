@@ -4,10 +4,12 @@ pylair is a Python library used to interact with the Lair 2.0 API
 
 ## Installation ##
 
-1. Download the binary distribution
+1. Download the binary distribution from [here](https://github.com/lair-framework/pylair/releases/latest).
 2. Install it with pip:
 
-```pip install pylair-<version>.tar.gz```
+```
+$ sudo pip install pylair-<version>.tar.gz
+```
 
 ## Example ##
 
