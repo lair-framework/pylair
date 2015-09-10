@@ -66,6 +66,15 @@ def import_project(project, opts):
 
     return ret
 
+# Function that performs project export. Returns a json string
+def export_project(opts):
+    u = opts.scheme + '://' + opts.host + _api + opts.project_id
+    r = requests.get(
+            url=u,
+            auth=HTTPBasicAuth(opts.username, opts.password),
+            headers={'Content-Type': 'application/json'})
+    
+    return r.json()
 
 # Dictionary used to represent the response from the Lair API server
 lair_response = {
