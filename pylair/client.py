@@ -1,5 +1,6 @@
 import requests
 from requests.auth import HTTPBasicAuth
+from warnings import filterwarnings
 import json
 
 VERSION = "1.0"
@@ -34,6 +35,8 @@ class Options:
         self.project_id = project_id
         self.scheme = scheme
         self.insecure_skip_verify = insecure_skip_verify
+        if insecure_skip_verify:
+            filterwarnings('ignore', 'Unverified HTTPS request')
 
         if self.username == '':
             raise Exception('Missing required value: username')
@@ -57,7 +60,8 @@ def import_project(project, opts):
             url=u,
             auth=HTTPBasicAuth(opts.username, opts.password),
             data=json.dumps(project),
-            headers={'Content-Type': 'application/json'})
+            headers={'Content-Type': 'application/json'},
+            verify=not (opts.insecure_skip_verify and opts.insecure_skip_verify))
 
     rjson = r.json()
     ret = dict(lair_response)
@@ -72,8 +76,9 @@ def export_project(opts):
     r = requests.get(
             url=u,
             auth=HTTPBasicAuth(opts.username, opts.password),
-            headers={'Content-Type': 'application/json'})
-    
+            headers={'Content-Type': 'application/json'},
+            verify=not (opts.insecure_skip_verify and opts.insecure_skip_verify))
+
     return r.json()
 
 # Dictionary used to represent the response from the Lair API server
